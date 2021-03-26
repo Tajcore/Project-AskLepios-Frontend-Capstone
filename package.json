@@ -2,7 +2,7 @@
   "name": "asklepios_front",
   "version": "0.0.1",
   "description": "An artificial intelligent health consulting chatbot created by a group of people",
-  "productName": "asklepios",
+  "productName": "Project AskLepios",
   "author": "Tajcore <tahjyeithompson@gmail.com>",
   "private": true,
   "scripts": {
