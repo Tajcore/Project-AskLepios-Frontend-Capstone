@@ -1,81 +1,104 @@
 <template>
-  <div class="header">
-    <div class="header-section flex">
-      <q-btn flat class="nav-link">
-        Home
-      </q-btn>
-      <q-btn flat class="nav-link">
-        Team
-      </q-btn>
-      <q-btn flat class="nav-link">
-        Demo
-      </q-btn>
-    </div>
-    <div class="header-section">
-      <div class="logo">
-        <img class="logo logo-img" src="~assets/asklepios-logo-full.svg" />
-        <div class="logo logo-title">AskLepios</div>
-      </div>
-    </div>
-    <div class="header-section">
-      <q-btn class="demo-btn"><span class="btn-txt">Try Demo</span></q-btn>
-    </div>
-  </div>
+  <s>
+    <q-header reveal reveal-offset="0" class="row justify-center fixed bg-transparent">
+      <q-toolbar
+        v-bind:class="{
+          'text-dark': !dark,
+          'text-white': dark
+        }"
+        class="bg-transparent q-my-md lg-col-8 md-col-12"
+      >
+        <q-btn
+          @click="drawer = !drawer"
+          flat
+          round
+          dense
+          icon="menu"
+          color="dark"
+          class="q-mr-sm lt-lg"
+        />
+        <q-space />
+        <q-btn flat label="Home" class=" gt-md" />
+        <q-btn flat label="Team" class="gt-md" />
+        <q-btn flat label="Demo" class="gt-md" />
+
+        <q-space />
+        <q-toolbar-title
+          ><img v-if="dark" src="~assets/logo_light.svg" />
+          <img v-else src="~assets/logo_dark.svg" />
+        </q-toolbar-title>
+        <q-space />
+        <q-btn
+          v-bind:class="{
+            'text-dark': dark,
+            'bg-primary': !dark,
+            'bg-secondary': dark,
+            'text-white': !dark
+          }"
+          label="Try Demo"
+        />
+        <q-space class="gt-md" />
+      </q-toolbar>
+    </q-header>
+    <q-drawer
+      v-model="drawer"
+      overlay
+      :width="150"
+      class="lt-lg"
+    >
+      <q-scroll-area class="fit">
+        <q-list padding class="menu-list">
+          <q-item @click="drawer = !drawer" clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="menu" />
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="home" />
+            </q-item-section>
+
+            <q-item-section>
+              Home
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="group" />
+            </q-item-section>
+
+            <q-item-section>
+              Team
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="gamepad" />
+            </q-item-section>
+
+            <q-item-section>
+              Demo
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
+    </q-drawer>
+  </s>
 </template>
 
 <script>
 export default {
-  name: "header"
+  name: "t-header",
+  props: {
+    dark: Boolean
+  },
+  data() {
+    return {
+      drawer: false
+    };
+  },
+  computed: {}
 };
 </script>
-
-<style lang="scss" scoped>
-.header {
-  height: 60px;
-  background: transparent;
-  padding: 2.5rem;
-  background: $secondary;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.header-section {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.nav-link {
-  color: $dark;
-  font-size: 14px;
-  margin: 0 1.2rem 0 1.2rem;
-}
-
-.logo{
-  grid-gap: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  &.logo-img{
-    height: 50px;
-    width: auto;
-  }
-  &.logo-title{
-    font-size: 26px;
-    font-weight: 900;
-  }
-}
-
-
-.demo-btn{
-  background: $primary;
-  color: $light;
-}
-
-
-</style>

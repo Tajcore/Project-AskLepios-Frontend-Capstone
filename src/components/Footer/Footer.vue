@@ -6,7 +6,7 @@
         <img class="logo logo-img" src="~assets/asklepios-logo-full.svg" />
         <div class="logo logo-title">AskLepios</div>
       </div>
-      <q-btn class="demo-btn"><span class="btn-txt">Try Demo</span></q-btn>
+      <q-btn class="demo-btn gt-md"><span class="btn-txt">Try Demo</span></q-btn>
     </div>
   </div>
 </template>
