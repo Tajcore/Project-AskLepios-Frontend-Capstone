@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <div class="footer-section">
-      <div class="text-dark">©2021 CAPSTONE PROJECT</div>
+      <div class="text-dark">©2021 CAPSTONE PROJECT GOP</div>
       <div class="logo">
         <img class="logo logo-img" src="~assets/asklepios-logo-full.svg" />
         <div class="logo logo-title">AskLepios</div>

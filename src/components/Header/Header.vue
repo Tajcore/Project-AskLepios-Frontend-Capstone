@@ -1,6 +1,10 @@
 <template>
   <s>
-    <q-header reveal reveal-offset="0" class="row justify-center fixed bg-transparent">
+    <q-header
+      reveal
+      reveal-offset="0"
+      class="row justify-center fixed bg-transparent"
+    >
       <q-toolbar
         v-bind:class="{
           'text-dark': !dark,
@@ -18,10 +22,33 @@
           class="q-mr-sm lt-lg"
         />
         <q-space />
-        <q-btn flat label="Home" class=" gt-md" />
-        <q-btn flat label="Team" class="gt-md" />
-        <q-btn flat label="Demo" class="gt-md" />
-
+        <router-link :to="{ path: '/' }">
+          <template v-slot="props">
+            <q-btn
+              flat
+              :to="props.route"
+              v-bind="buttonProps(props, 'HOME', dark)"
+            />
+          </template>
+        </router-link>
+        <router-link :to="{ path: '/team' }">
+          <template v-slot="props">
+            <q-btn
+              flat
+              :to="props.route"
+              v-bind="buttonProps(props, 'TEAM', dark)"
+            />
+          </template>
+        </router-link>
+        <router-link :to="{ path: '/demo' }">
+          <template v-slot="props">
+            <q-btn
+              flat
+              :to="props.route"
+              v-bind="buttonProps(props, 'DEMO', dark)"
+            />
+          </template>
+        </router-link>
         <q-space />
         <q-toolbar-title
           ><img v-if="dark" src="~assets/logo_light.svg" />
@@ -40,12 +67,7 @@
         <q-space class="gt-md" />
       </q-toolbar>
     </q-header>
-    <q-drawer
-      v-model="drawer"
-      overlay
-      :width="150"
-      class="lt-lg"
-    >
+    <q-drawer v-model="drawer" overlay :width="150" class="lt-lg">
       <q-scroll-area class="fit">
         <q-list padding class="menu-list">
           <q-item @click="drawer = !drawer" clickable v-ripple>
@@ -96,9 +118,37 @@ export default {
   },
   data() {
     return {
-      drawer: false
+      drawer: false,
+      active: window.location.pathname
     };
   },
-  computed: {}
+  computed: {
+    activeMenu: () => {
+      cosole.log(window.location.pathname);
+    }
+  },
+
+  methods: {
+    buttonProps({ href, route, isActive, isExactActive }, name, dark) {
+      const props = {
+        color: dark ? "light" : "dark",
+        fontWeight: "600",
+        noCaps: true,
+        label: name,
+        outline: true,
+        to: href
+      };
+
+      if (isActive === true) {
+        props.color = isExactActive === true ? dark ? "secondary": 'primary' : dark ? "light" : "dark";
+        props.fontWeight = "600";
+      } else {
+        props.color = dark ? "light" : "black";
+      }
+
+      return props;
+    }
+  }
 };
 </script>
+<style lang="scss" scoped></style>
