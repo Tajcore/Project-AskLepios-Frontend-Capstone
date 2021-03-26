@@ -106,7 +106,7 @@
               </div>
               <div class="text-h5 text-bold col-12">Fast Responses</div>
               <div class="text-body1 col-9">
-                Conversations flow natrualy and responses are generated quickly
+                Conversations flow naturally and responses are generated quickly
               </div>
             </div>
           </div>
