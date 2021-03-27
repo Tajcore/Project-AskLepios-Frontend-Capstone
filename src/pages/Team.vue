@@ -12,8 +12,11 @@
         project which is the main focus of our Capstone Project.
       </div>
     </section>
-    <section class="col-lg-12 col-sm-10 justify-center items-center row q-mb-xl">
+    <section
+      class="col-12 justify-center items-center row q-mb-xl q-gutter-xl"
+    >
       <TeamCard
+      class="col-md-4 col-sm-9 col-xs-10 col-lg-4"
         v-for="member in members"
         :key="member.id"
         :name="member.name"
@@ -42,6 +45,42 @@ const teamMembers = [
       linkedin: "https://www.linkedin.com/in/tajcore/",
       github: "https://github.com/Tajcore",
       instagram: "https://www.instagram.com/tahj_sdsg/"
+    }
+  },
+  {
+    id: 2,
+    name: "Zoë Nichole Elizabeth Xion Faith Hall",
+    title: "University Student",
+    bio: "To be added ",
+    pic: require("../assets/team/zoe_hall.jpeg"),
+    socialMedia: {
+      facebook: "https://www.facebook.com/zoe.i.hall",
+      linkedin: "https://www.linkedin.com/in/zo%C3%AB-hall-5b17aa1b7",
+      github: "https://github.com/znexfh",
+      instagram: "https://www.instagram.com/znexfh/"
+    }
+  },
+    {
+    id: 3,
+    name: "Shaun Jennings",
+    title: "University Student",
+    bio: "To be added",
+    pic: require("../assets/team/shaun_jennings.jpeg"),
+    socialMedia: {
+      instagram: "https://www.instagram.com/shaunjennings_/",
+      github:'https://github.com/ShaunJennings876'
+    }
+  },
+      {
+    id: 4,
+    name: "Brandon Tucker",
+    title: "University Student",
+    bio: "To be added",
+    pic: require("../assets/team/brandon_tucker.jpeg"),
+    socialMedia: {
+      instagram: "https://www.instagram.com/brandontuckerr/",
+      linkedin: "https://www.linkedin.com/in/brandon-tucker-603ba9207/",
+      github: 'https://github.com/BeaTea109'
     }
   }
 ];

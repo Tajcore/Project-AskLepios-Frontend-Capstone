@@ -1,6 +1,6 @@
 <template>
   <q-card style="team_card" dark>
-    <img :src="pic" />
+    <img class="member-pic" :src="pic" />
     <q-card-section>
       <div class="text-h6">{{ name }}</div>
       <div class="text-subtitle2">{{ title }}</div>
@@ -59,6 +59,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.member-pic{
+  max-height: 400px;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
 .team_card{
   max-width: 500px;
 }
