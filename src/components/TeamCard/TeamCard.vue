@@ -1,5 +1,5 @@
 <template>
-  <q-card dark style="max-width:500px">
+  <q-card style="team_card" dark>
     <img :src="pic" />
     <q-card-section>
       <div class="text-h6">{{ name }}</div>
@@ -57,3 +57,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.team_card{
+  max-width: 500px;
+}
+</style>

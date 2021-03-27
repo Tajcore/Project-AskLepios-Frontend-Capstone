@@ -1,14 +1,18 @@
 <template>
-  <q-page class="team-page flex flex-center justify-center row q-gutter-xl">
-    <span class="backdrop" />
+  <q-page class="flex flex-center justify-center row q-gutter-xl">
     <section class="col-8 justify-center row">
-      <div class="col-12 text-h2 text-white text-center">
+      <div class="gt-md col-12 text-h4 text-white text-center">
+        We're a team of university students from the University of the West
+        Indies studying Computer Science. We came together to create this
+        project which is the main focus of our Capstone Project.
+      </div>
+      <div class="lt-lg col-12 text-h6 text-white text-center">
         We're a team of university students from the University of the West
         Indies studying Computer Science. We came together to create this
         project which is the main focus of our Capstone Project.
       </div>
     </section>
-    <section class="col-12 justify-center row q-mb-xl q-gutter-xl">
+    <section class="col-lg-12 col-sm-10 justify-center items-center row q-mb-xl">
       <TeamCard
         v-for="member in members"
         :key="member.id"

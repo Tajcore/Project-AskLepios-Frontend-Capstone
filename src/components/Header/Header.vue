@@ -10,19 +10,21 @@
           'text-dark': !dark,
           'text-white': dark
         }"
-        class="bg-transparent q-my-md lg-col-8 md-col-12"
+        class="bg-transp
+        arent q-my-md lg-col-8 md-col-12"
       >
+      <q-space  />
         <q-btn
           @click="drawer = !drawer"
           flat
           round
           dense
           icon="menu"
-          color="dark"
+          :color="dark ? 'light' : 'dark'"
           class="q-mr-sm lt-lg"
         />
-        <q-space />
-        <router-link :to="{ path: '/' }">
+
+        <router-link class="gt-md" :to="{ path: '/' }">
           <template v-slot="props">
             <q-btn
               flat
@@ -31,7 +33,7 @@
             />
           </template>
         </router-link>
-        <router-link :to="{ path: '/team' }">
+        <router-link class="gt-md" :to="{ path: '/team' }">
           <template v-slot="props">
             <q-btn
               flat
@@ -40,7 +42,7 @@
             />
           </template>
         </router-link>
-        <router-link :to="{ path: '/demo' }">
+        <router-link class="gt-md" :to="{ path: '/demo' }">
           <template v-slot="props">
             <q-btn
               flat
@@ -64,7 +66,7 @@
           }"
           label="Try Demo"
         />
-        <q-space class="gt-md" />
+        <q-space />
       </q-toolbar>
     </q-header>
     <q-drawer v-model="drawer" overlay :width="150" class="lt-lg">
@@ -75,7 +77,7 @@
               <q-icon name="menu" />
             </q-item-section>
           </q-item>
-          <q-item clickable v-ripple>
+          <q-item to="/" exact clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="home" />
             </q-item-section>
@@ -85,7 +87,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item to="team" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="group" />
             </q-item-section>
@@ -95,7 +97,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item to="demo" clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="gamepad" />
             </q-item-section>

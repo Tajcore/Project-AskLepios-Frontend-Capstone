@@ -143,12 +143,9 @@ export default {
   width: 100%;
   height: auto;
 }
-@media screen and (max-width: $breakpoint-xs-max) {
+@media screen and (max-width: $breakpoint-md-max) {
   .background {
-    width: auto;
-    height: 90%;
-    top: 50%;
-    left: 50%;
+
     z-index: -1;
     opacity: 0.2;
   }
