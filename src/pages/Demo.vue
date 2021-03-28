@@ -59,6 +59,9 @@
 export default {
   data() {
     return {
+      connection: null,
+      isConnected: false,
+      botResponse: null,
       messages: [
         {
           username: "Lepios",
@@ -76,8 +79,10 @@ export default {
   },
   watch: {
     messages: function(newMessage, oldMessage) {
-      /*       var chatSpace = document.getElementById("chat-space");
-      chatSpace.scrollTop = chatSpace.scrollHeight; */
+      console.log(newMessage);
+    },
+    botResponse: function(newMessage, oldMessage) {
+      this.sendMessageBot(newMessage);
     }
   },
   computed: {
@@ -85,7 +90,26 @@ export default {
       return this.inputMessage.length === 0;
     }
   },
+  mounted: function() {
+    this.setUp();
+  },
   methods: {
+    setUp() {
+      this.connection = new WebSocket("ws://localhost:8000/conversation");
+      const isConnected = this.setConnection;
+      const setMessage = this.setBotMessage;
+      this.connection.onopen = function() {
+        isConnected();
+        console.log("Successfully connected to the echo websocket server...");
+      };
+      const send = this.sendMessage;
+      this.connection.onmessage = function(event) {
+        setMessage(event.data);
+      };
+    },
+    setConnection() {
+      this.isConnected = true;
+    },
     sendMessage() {
       if (this.inputMessage.length !== 0) {
         const newMessage = {
@@ -96,8 +120,20 @@ export default {
         };
         this.messages.push(newMessage);
 
+        this.connection.send(newMessage.content);
         this.inputMessage = "";
       }
+    },
+    setBotMessage(msg) {
+      this.botResponse = msg;
+    },
+    sendMessageBot(message) {
+      const newMessage = {
+        content: message,
+        username: "lepios",
+        id: this.messages.length + 1
+      };
+      this.messages.push(newMessage);
     },
     sendMessageEnter(e) {
       if (e.keyCode === 13) {
