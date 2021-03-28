@@ -234,8 +234,19 @@ export default {
               font-weight: 600;
               background-color: $dark;
             }
-            @media screen and (max-width: $breakpoint-md-max) {
+            @media screen and (max-width: $breakpoint-sm-max) {
               max-width: 90%;
+            }
+
+            @media screen and (max-width: $breakpoint-md-max) {
+              max-width: 55%;
+            }
+
+            @media screen and (max-width: $breakpoint-xs-max) {
+              max-width: 90%;
+            }
+            @media screen and (max-width: $breakpoint-xl-max) {
+              max-width: 35%;
             }
           }
           .message-inner-bot {
@@ -247,8 +258,18 @@ export default {
               font-weight: 600;
               background-color: $secondary;
             }
-            @media screen and (max-width: $breakpoint-md-max) {
+            @media screen and (max-width: $breakpoint-sm-max) {
               max-width: 90%;
+            }
+
+            @media screen and (max-width: $breakpoint-md-max) {
+              max-width: 55%;
+            }
+            @media screen and (max-width: $breakpoint-xs-max) {
+              max-width: 90%;
+            }
+            @media screen and (max-width: $breakpoint-xl-max) {
+              max-width: 35%;
             }
           }
         }
