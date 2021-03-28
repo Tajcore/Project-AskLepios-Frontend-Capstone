@@ -18,6 +18,7 @@
 
           <div class="row col-12 justify-start q-gutter-xs">
             <q-btn
+              to="/demo"
               color="dark"
               label="Try Out Lepios"
               class="col-auto"

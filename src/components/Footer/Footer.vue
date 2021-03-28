@@ -7,7 +7,7 @@
         <div class="logo logo-title">AskLepios</div>
       </div>
       <q-space class="gt-md"/>
-      <q-btn class="demo-btn gt-md col-lg-2 col-sm-12"><span class="btn-txt">Try Demo</span></q-btn>
+      <q-btn to="/demo" class="demo-btn gt-md col-lg-2 col-sm-12"><span class="btn-txt">Try Demo</span></q-btn>
     </div>
   </div>
 </template>
