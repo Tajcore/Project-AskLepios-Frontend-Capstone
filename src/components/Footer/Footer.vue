@@ -1,13 +1,13 @@
 <template>
   <div class="footer">
     <div class="footer-section row">
-      <div class="text-dark col-lg-6 col-sm-12">©2021 CAPSTONE PROJECT GOP</div>
+      <div class="text-dark col-xl-6 col-lg-6 col-sm-12">©2021 CAPSTONE PROJECT GOP</div>
       <div class="logo gt-md">
         <img class="logo logo-img" src="~assets/asklepios-logo-full.svg" />
         <div class="logo logo-title">AskLepios</div>
       </div>
       <q-space class="gt-md"/>
-      <q-btn to="/demo" class="demo-btn gt-md col-lg-2 col-sm-12"><span class="btn-txt">Try Demo</span></q-btn>
+      <q-btn to="/demo" class="demo-btn gt-md col-xl-2 col-xl-2 col-lg-2 col-sm-12"><span class="btn-txt">Try Demo</span></q-btn>
     </div>
   </div>
 </template>

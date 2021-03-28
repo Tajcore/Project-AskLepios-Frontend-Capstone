@@ -41,7 +41,7 @@
             dense
             v-model="inputMessage"
             placeholder="Write a message..."
-            class="col-lg-11 col-md-11 col-sm-10 col-xs-9"
+            class="col-xl-11 col-lg-11 col-md-11 col-sm-10 col-xs-9"
           />
           <q-btn
             :disable="disableSend"

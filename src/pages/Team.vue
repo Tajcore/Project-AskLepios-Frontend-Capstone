@@ -14,7 +14,7 @@
     </section>
     <section class="col-12 justify-center items-center row q-mb-xl q-gutter-xl">
       <TeamCard
-        class="col-md-4 col-sm-9 col-xs-10 col-lg-4"
+        class="col-md-4 col-sm-9 col-xs-10 col-xl-4 col-lg-4"
         v-for="member in members"
         :key="member.id"
         :name="member.name"

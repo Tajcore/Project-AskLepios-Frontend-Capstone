@@ -3,7 +3,7 @@
     <img src="~assets/home-background.svg" class="background" />
     <section class="q-mb-xl row justify-center ">
       <div class="row justify-start col-9 q-gutter-md">
-        <div class="col-lg-7 col-md-6 row q-gutter-md">
+        <div class="col-xl-7 col-xl-7 col-lg-7 col-md-6 row q-gutter-md">
           <div class="text-h3 col-12">
             Introducing AskLepios, Our AI Health Chatbot
           </div>
@@ -26,7 +26,7 @@
             <q-btn outline label="Learn More" class="col-auto" />
           </div>
         </div>
-        <div col-lg-6 col-md-5 no-gutter>
+        <div class="col-lg-6 col-md-5 no-gutter">
           <lottie-player
             src="https://assets10.lottiefiles.com/packages/lf20_xhvv47k5.json"
             background="transparent"
@@ -40,8 +40,8 @@
       </div>
     </section>
     <section class="q-mb-xl row justify-center">
-      <div class="row justify-center col-lg-12 col-md-9 col-sm-9 col-xs-9">
-        <div class="col-lg-4 col-sm-6 row q-gutter-md">
+      <div class="row justify-center col-xl-12 col-lg-12 col-md-9 col-sm-9 col-xs-9">
+        <div class="col-xl-4 col-lg-4 col-sm-6 row q-gutter-md">
           <div class="text-h3">
             Health Consultation
           </div>
@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-sm-6 row q-gutter-md">
+        <div class="col-xl col-lg-4 col-sm-6 row q-gutter-md">
           <div class="text-h3">
             How it Works
           </div>
