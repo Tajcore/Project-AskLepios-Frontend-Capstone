@@ -8,7 +8,7 @@
         </q-toolbar>
       </q-header>
 
-      <section id="chat-space" class="chat-box col-grow">
+      <section v-if="isConnected === true" id="chat-space" class="chat-box col-grow">
         <div
           v-for="message in messages"
           :key="message.key"
@@ -30,6 +30,19 @@
             <div class="content">{{ message.content }}</div>
           </div>
         </div>
+      </section>
+      <section
+        v-else
+        class="bg-white flex flex-center items-center justify-center col-12"
+      >
+        <lottie-player
+          src="https://assets7.lottiefiles.com/datafiles/ORpUnaV6z0mJ17E/data.json"
+          background="transparent"
+          speed="1"
+          style="width: 300px; height: 300px;"
+          loop
+          autoplay
+        ></lottie-player>
       </section>
 
       <footer class="col-12 col-shrink">
@@ -91,11 +104,16 @@ export default {
     }
   },
   mounted: function() {
-    this.setUp();
+    console.log(this.isConnected);
+    this.setUp()
+  },
+  destroyed: function() {
+    this.isConnected = false;
+    this.connection.close();
   },
   methods: {
     setUp() {
-      this.connection = new WebSocket("ws://localhost:8000/conversation");
+      this.connection = new WebSocket("ws:asklepios-project-backend.herokuapp.com/conversation");
       const isConnected = this.setConnection;
       const setMessage = this.setBotMessage;
       this.connection.onopen = function() {
