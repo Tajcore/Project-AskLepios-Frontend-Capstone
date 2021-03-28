@@ -8,7 +8,10 @@ const routes = [
       {path: '/team', component: () =>import('src/pages/Team.vue')}
     ]
   },
-
+  {
+    path: '/demo',
+    component:() => import('src/pages/Demo.vue')
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
