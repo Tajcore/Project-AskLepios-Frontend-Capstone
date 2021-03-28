@@ -58,6 +58,7 @@
         </q-toolbar-title>
         <q-space />
         <q-btn
+          to="/demo"
           v-bind:class="{
             'text-dark': dark,
             'bg-primary': !dark,
