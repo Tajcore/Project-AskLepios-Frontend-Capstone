@@ -68,8 +68,8 @@ export default {
   },
   watch: {
     messages: function(newMessage, oldMessage) {
-      var chatSpace = document.getElementById("chat-space");
-      chatSpace.scrollTop = chatSpace.scrollHeight;
+/*       var chatSpace = document.getElementById("chat-space");
+      chatSpace.scrollTop = chatSpace.scrollHeight; */
     }
   },
   computed: {
