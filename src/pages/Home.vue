@@ -127,9 +127,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home-page {
+  position: relative;
+  overflow-x: hidden;
+}
 .background {
-  width: 1490.03px;
-  height: 1154px;
+  width: 100%;
+  height: auto;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 20%;
@@ -137,15 +141,11 @@ export default {
   z-index: -1;
 }
 
-.lottie-player{
+.lottie-player {
   padding: 0 !important;
   margin: 0 !important;
-
 }
 @media screen and (max-width: $breakpoint-md-max) {
-  .home-page{
-    position: relative;
-  }
   .background {
     z-index: -1;
     opacity: 0.2;
