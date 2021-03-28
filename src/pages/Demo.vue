@@ -19,7 +19,14 @@
             <div class="content">{{ message.content }}</div>
           </div>
           <div v-else class="message-inner-bot">
-            <div class="username">Lepios</div>
+            <div class="username row items-center">
+              <img
+                style="height:30px ; width: auto; margin-right: 0.1rem"
+                class="col-6"
+                src="~assets/asklepios-logo-full.svg"
+              />
+              Lepios
+            </div>
             <div class="content">{{ message.content }}</div>
           </div>
         </div>
@@ -29,6 +36,7 @@
         <div class="row">
           <q-input
             type="text"
+            v-on:keyup.enter="sendMessage"
             filled
             dense
             v-model="inputMessage"
@@ -68,7 +76,7 @@ export default {
   },
   watch: {
     messages: function(newMessage, oldMessage) {
-/*       var chatSpace = document.getElementById("chat-space");
+      /*       var chatSpace = document.getElementById("chat-space");
       chatSpace.scrollTop = chatSpace.scrollHeight; */
     }
   },
@@ -79,15 +87,22 @@ export default {
   },
   methods: {
     sendMessage() {
-      const newMessage = {
-        content: this.inputMessage,
-        username: this.username,
-        id: this.messages.length + 1,
-        user: true
-      };
-      this.messages.push(newMessage);
+      if (this.inputMessage.length !== 0) {
+        const newMessage = {
+          content: this.inputMessage,
+          username: this.username,
+          id: this.messages.length + 1,
+          user: true
+        };
+        this.messages.push(newMessage);
 
-      this.inputMessage = "";
+        this.inputMessage = "";
+      }
+    },
+    sendMessageEnter(e) {
+      if (e.keyCode === 13) {
+        this.sendMessage();
+      }
     }
   }
 };
@@ -106,20 +121,6 @@ export default {
       display: block;
       width: 100%;
       padding: 50px 30px 10px;
-      .logout {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        appearance: none;
-        border: none;
-        outline: none;
-        background: none;
-
-        color: #fff;
-        font-size: 18px;
-        margin-bottom: 10px;
-        text-align: right;
-      }
     }
     .chat-box {
       border-radius: 24px 24px 0px 0px;
@@ -190,29 +191,29 @@ export default {
           margin-top: 30px;
           text-align: right;
           .message-inner {
-            max-width: 20%;
+            max-width: 35%;
             justify-self: flex-end;
             .content {
               color: #fff;
               font-weight: 600;
               background-color: $dark;
             }
-           @media screen and (max-width: $breakpoint-md-max){
-               max-width: 75%;
-             }
+            @media screen and (max-width: $breakpoint-md-max) {
+              max-width: 90%;
+            }
           }
           .message-inner-bot {
             justify-self: flex-start;
-            max-width: 20%;
+            max-width: 35%;
             .content {
               color: $dark;
               padding: 2rem;
               font-weight: 600;
               background-color: $secondary;
             }
-             @media screen and (max-width: $breakpoint-md-max){
-               max-width: 75%;
-             }
+            @media screen and (max-width: $breakpoint-md-max) {
+              max-width: 90%;
+            }
           }
         }
       }
@@ -247,10 +248,27 @@ export default {
             transition: 0.4s;
           }
         }
-
       }
     }
+  }
+}
 
+.logout {
+  position: absolute;
+  top: -46%;
+  right: -3%;
+  transform: translate(-50%, -50%);
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: right;
+  @media screen and (max-width: $breakpoint-xs-max) {
+    right: -15%;
   }
 }
 </style>
