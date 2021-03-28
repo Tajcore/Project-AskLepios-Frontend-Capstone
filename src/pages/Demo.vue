@@ -112,7 +112,7 @@ export default {
 .view {
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+
   background-color: $primary;
   &.chat {
     flex-direction: column;
@@ -132,8 +132,8 @@ export default {
       flex-direction: column;
       justify-content: flex-end;
       flex-grow: 1;
-      min-height: 570px;
-      max-height: 570px;
+      min-height: 73vh;
+      max-height: 73vh;
       overflow: scroll;
       overflow-x: hidden !important;
       scrollbar-width: none; /* Firefox */
@@ -219,8 +219,7 @@ export default {
       }
     }
     footer {
-      position: relative;
-      display: block;
+      position: sticky;
       bottom: 0px;
       background-color: #fff;
       padding: 30px;
