@@ -79,7 +79,7 @@ export default {
         {
           username: "Lepios",
           content:
-            "Hello my name is Lepios, an AI that's able to talk to you about your current health, let's start with how are you feeling today?",
+            "Hello my name is Lepios, :)",
           id: 1
         }
       ],
