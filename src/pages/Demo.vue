@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     setUp() {
-      this.connection = new WebSocket("ws:asklepios-project-backend.herokuapp.com/conversation");
+      this.connection = new WebSocket("wss://asklepios-project-backend.herokuapp.com/conversation");
       const isConnected = this.setConnection;
       const setMessage = this.setBotMessage;
       this.connection.onopen = function() {
