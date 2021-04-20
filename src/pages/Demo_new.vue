@@ -6,7 +6,7 @@
           AskLepios
         </q-toolbar-title>
         <q-space />
-        <q-btn icon="home" />
+        <q-btn to="/" icon="home" />
       </q-toolbar>
     </q-header>
 
@@ -170,6 +170,12 @@ export default {
           content: "Hey I am Lepios, feel free to talk to me about your health",
           sender: "bot",
           timestamp: Date.now()
+        },
+         {
+          type: "message",
+          content: `For a better experience you should try start a consultation by saying something along the lines of "I don't feel good today"`,
+          sender: "bot",
+          timestamp: Date.now()
         }
       ]
     };
@@ -189,7 +195,7 @@ export default {
   created: async function() {
     const vm = this;
     console.log("Starting connection to WebSocket Server");
-    this.connection = await new WebSocket("wss://asklepios-project-backend.herokuapp.com/conversation");
+    this.connection = await new WebSocket("ws://localhost:8000/conversation");
 
     this.connection.onmessage = async function(event) {
       if (event.data !== "None") {
