@@ -79,7 +79,7 @@ export default {
         {
           username: "Lepios",
           content:
-            "Hello my name is Lepios, :)",
+            "Hello my name is Lepios :)",
           id: 1
         }
       ],
@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     setUp() {
-      this.connection = new WebSocket("wss://asklepios-project-backend.herokuapp.com/conversation");
+      this.connection = new WebSocket("ws://localhost:8000/conversation");
       const isConnected = this.setConnection;
       const setMessage = this.setBotMessage;
       this.connection.onopen = function() {
@@ -180,18 +180,15 @@ export default {
       border-radius: 24px 24px 0px 0px;
       background-color: #fff;
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
-      flex: 1 1 100%;
+      flex: 1 1 auto;
       padding: 30px;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
       flex-grow: 1;
       min-height: 73vh;
       max-height: 73vh;
-      overflow: scroll;
-      overflow-x: hidden !important;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      z-index: 3;
+      overflow: auto;
       &::-webkit-scrollbar {
         width: 0;
         height: 0;

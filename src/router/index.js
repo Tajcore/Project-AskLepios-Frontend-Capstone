@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import routes from './routes'
+import VueChatScroll from 'vue-chat-scroll';
 
+Vue.use(VueChatScroll);
 Vue.use(VueRouter)
 
 /*
