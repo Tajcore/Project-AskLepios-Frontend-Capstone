@@ -13,7 +13,7 @@
         class="bg-transp
         arent q-my-md lg-col-8 md-col-12"
       >
-      <q-space  />
+        <q-space />
         <q-btn
           @click="drawer = !drawer"
           flat
@@ -29,7 +29,7 @@
             <q-btn
               flat
               :to="props.route"
-              v-bind="buttonProps(props, 'HOME', dark)"
+              v-bind="buttonProps(props, 'ABOUT PROJECT', dark)"
             />
           </template>
         </router-link>
@@ -38,7 +38,7 @@
             <q-btn
               flat
               :to="props.route"
-              v-bind="buttonProps(props, 'TEAM', dark)"
+              v-bind="buttonProps(props, 'MEET THE TEAM', dark)"
             />
           </template>
         </router-link>
@@ -143,7 +143,14 @@ export default {
       };
 
       if (isActive === true) {
-        props.color = isExactActive === true ? dark ? "secondary": 'primary' : dark ? "light" : "dark";
+        props.color =
+          isExactActive === true
+            ? dark
+              ? "secondary"
+              : "primary"
+            : dark
+            ? "light"
+            : "dark";
         props.fontWeight = "600";
       } else {
         props.color = dark ? "light" : "black";

@@ -26,21 +26,20 @@
             <q-btn outline label="Learn More" class="col-auto" />
           </div>
         </div>
-        <div class="col-lg-6 col-md-5 no-gutter">
-          <lottie-player
-            src="https://assets10.lottiefiles.com/packages/lf20_xhvv47k5.json"
-            background="transparent"
-            speed="1"
-            style="width: auto; height: auto"
-            loop
-            autoplay
-            class="lottie-player"
-          />
+        <div class="q-pa-md col-6">
+          <q-card>
+            <q-video
+              :ratio="16 / 9"
+              src="https://www.youtube.com/embed/9eXCB3Fs-qU"
+            />
+          </q-card>
         </div>
       </div>
     </section>
     <section class="q-mb-xl row justify-center">
-      <div class="row justify-center col-xl-12 col-lg-12 col-md-9 col-sm-9 col-xs-9">
+      <div
+        class="row justify-center col-xl-12 col-lg-12 col-md-9 col-sm-9 col-xs-9"
+      >
         <div class="col-xl-4 col-lg-4 col-sm-6 row q-gutter-md">
           <div class="text-h3">
             Health Consultation

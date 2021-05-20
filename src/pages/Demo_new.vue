@@ -43,8 +43,9 @@
                         v-on:click="
                           () => {
                             chatContents.push({
-                              type: 'message',
+                              type: 'none',
                               sender: 'user',
+                              active: false,
                               content: option[1],
                               realValue: option[0]
                             });
@@ -59,7 +60,33 @@
                       >
                     </div>
                   </div>
-
+                  <div
+                    v-if="
+                      bubble.type === 'information' && bubble.active == true
+                    "
+                    class="user-bubble"
+                  >
+                    <div class="chat-options">
+                      <q-btn
+                        color="primary"
+                        outline
+                        v-on:click="
+                          () => {
+                            disease = option;
+                            disease_info = true;
+                          }
+                        "
+                        v-for="(option, option_index) in bubble.choices"
+                        :key="`Chat-Option-${index}-${option_index}`"
+                      >
+                        <span>
+                          <strong>{{ option.name }}</strong>
+                          |
+                          {{ percentFormat(option.accuracy) }} certainty
+                        </span>
+                      </q-btn>
+                    </div>
+                  </div>
                   <div
                     v-if="bubble.type === 'message' && bubble.sender == 'bot'"
                     class="bot-bubble row q-gutter-xs"
@@ -147,6 +174,52 @@
           </q-card-actions>
         </q-card>
       </div>
+      <q-dialog
+        v-if="disease_info"
+        v-model="disease_info"
+        transition-show="scale"
+        transition-hide="scale"
+      >
+        <q-card class="bg-teal text-white" style="width: 300px">
+          <q-card-section>
+            <div class="text-h6">{{ disease.name }}</div>
+          </q-card-section>
+
+          <q-card-section
+            v-if="disease.description !== false"
+            class="q-pt-none"
+          >
+            {{ disease.description[0] }}
+          </q-card-section>
+          <q-card-section v-else class="q-pt-none">
+            Sorry but Lepios doesn't have much information regarding this
+            illness
+          </q-card-section>
+          <q-card-section
+            v-show="disease.precautions !== false"
+            class="q-pt-none"
+          >
+            <strong>Suggested Precautions</strong>
+            <li
+              class="precaution-list-item"
+              v-for="(precaution, index) in disease.precautions"
+              :key="`${disease.name}-precaution-${index}`"
+            >
+              {{ precaution.charAt(0).toUpperCase() + precaution.slice(1) }}
+            </li>
+          </q-card-section>
+          <q-card-section class="q-pt-none">
+            <span
+              >Information regarding this illness can be found at
+              <a
+                target="_blank"
+                href="https://www.mayoclinic.org/diseases-conditions"
+                >www.mayoclinic.org</a
+              ></span
+            >
+          </q-card-section>
+        </q-card>
+      </q-dialog>
     </q-page-container>
   </q-layout>
 </template>
@@ -161,6 +234,8 @@ export default {
     return {
       disable: false,
       connection: null,
+      disease_info: false,
+      disease: null,
       isConnected: false,
       inputMessage: "",
       typing: false,
@@ -171,7 +246,7 @@ export default {
           sender: "bot",
           timestamp: Date.now()
         },
-         {
+        {
           type: "message",
           content: `For a better experience you should try start a consultation by saying something along the lines of "I don't feel good today"`,
           sender: "bot",
@@ -193,6 +268,7 @@ export default {
     }
   },
   created: async function() {
+    this.console = window.console;
     const vm = this;
     console.log("Starting connection to WebSocket Server");
     this.connection = await new WebSocket("ws://localhost:8000/conversation");
@@ -225,6 +301,10 @@ export default {
       };
       const formatter = new Intl.DateTimeFormat("default", options);
       return formatter.format(date);
+    },
+
+    percentFormat(value) {
+      return Intl.NumberFormat("en-US", { style: "percent" }).format(value);
     },
 
     sendMessage(input) {
@@ -371,6 +451,35 @@ export default {
   height: 20px;
   background-color: #138194;
   border-radius: 50%;
+}
+
+.precaution-list-item::before {
+  content: "•";
+  color: white;
+}
+
+a:link {
+  text-decoration: none;
+  color: $warning;
+  font-weight: bold;
+}
+
+a:visited {
+  text-decoration: none;
+  color: $warning;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $warning;
+  font-weight: bold;
+}
+
+a:active {
+  text-decoration: none;
+  color: $warning;
+  font-weight: bold;
 }
 
 @keyframes blink {
